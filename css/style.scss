@@ -7,16 +7,7 @@ $room-width: 500px;
 body {
   //font-family: sans-serif;
   font-family: 'Courier Prime', monospace;
-  background: #2e141d;
-}
-
-.room-btn {
-  padding: 20px;
-  background: $main-color;
-  color: #ffffff;;
-}
-
-body {
+  background: #453e7b;
   -webkit-perspective: 2000px;
   perspective: 2000px;
   -webkit-perspective-origin: center;
@@ -26,17 +17,60 @@ body {
   height: 100vh;
 }
 
+.room-btn {
+  padding: 20px;
+  background: $main-color;
+  color: #ffffff;;
+}
+
+
 .festival-title {
   position: fixed;
   z-index: 100;
-  bottom: 300px;
-  left: -220px;
+  top: 50px;
+  left: 75px;
   transform: rotateZ(90deg);
+  transform-origin: left;
+  transform-style: flat;
+  right: 0;
 
 
   h1 {
     color: #ffffff;
     font-size: 60px;
+  }
+}
+
+#room-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+  .button {
+    padding: 10px 20px;
+    background: $main-color;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+}
+
+
+#menu  {
+  text-align: center;
+  ul {
+    padding-left: 0;
+    list-style: none;
+    display: inline-block;
+    li {
+      padding: 10px 20px;
+      margin: 5px 0;
+      background: #ffffff;
+      display: inline-block;
+      border-radius: 50px;
+      cursor: pointer;
+    }
   }
 }
 
@@ -52,17 +86,6 @@ body {
 }
 
 
-#room-buttons {
-  .button {
-    padding: 20px;
-    background: $main-color;
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: 0.4px;
-    display: inline-block;
-    cursor: pointer;
-  }
-}
 
 
 // cube wrapper
@@ -136,4 +159,30 @@ body {
   -webkit-transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
   transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
   background-color: rgba(170, 179, 179, 0.8);
+}
+
+
+// content css
+
+#main {
+  .main-content {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+.project-item {
+  background: #ffffff;
+  padding: 30px;
+  h3 {
+    margin-bottom: 0;
+  }
+}
+
+
+
+// custom chatroom css
+
+.chatroom-content {
+  padding: 30px;
 }

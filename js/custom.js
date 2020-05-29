@@ -322,11 +322,11 @@ app.init();
 
 
 // $( "body" ).mousemove(function( event ) {
-//     var mouseX = event.pageX/10;
+//     var mouseX = event.pageX/5;
 //     var isHovered = $('.cube-wrapper').is(":hover"); // returns true or false
 //
 //     if ( !isHovered) {
 //         $( "main#pages" ).css("transform", 'rotateY(' + mouseX + 'deg)');
 //     }
 //
-// });
+// });a
