@@ -23,16 +23,14 @@
   font-weight: normal;
   src: local("Neue Haas Grotesk Text Pro Bold Italic"), url("../vendor/fonts/NHaasGroteskTXPro-76BdIt.woff") format("woff");
 }
+html {
+  min-height: 100%;
+}
+
 body {
   font-family: "Courier Prime", monospace;
   background: #f0cf00;
-  -webkit-perspective: 2000px;
-  perspective: 2000px;
-  -webkit-perspective-origin: center;
-  perspective-origin: center;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+  min-height: 100%;
 }
 
 h1 {
@@ -53,10 +51,39 @@ h2 {
   -webkit-text-stroke-color: black;
 }
 
-.room-btn {
-  padding: 20px;
-  background: red;
-  color: #ffffff;
+.btn {
+  font-family: "Neue Haas Grotesk Text Pro Bold";
+  border-radius: 15px;
+}
+
+.world-container {
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  -webkit-perspective-origin: center;
+  perspective-origin: center;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.4;
+  filter: blur(2px);
+  transition: 0.4s;
+}
+.world-container.world-active {
+  opacity: 1;
+  filter: blur();
+}
+
+.cube-wrapper {
+  width: 100%;
+  height: 100%;
+  transform: scale(0.5);
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.cube-wrapper.cube-zoomedin {
+  transform: scale(0.9);
+  pointer-events: all;
 }
 
 .festival-title {
@@ -70,7 +97,7 @@ h2 {
   right: 0;
 }
 .festival-title h1 {
-  font-size: 60px;
+  font-size: 70px;
   font-family: "Neue Haas Grotesk Text Pro Bold";
   color: black;
   -webkit-text-fill-color: transparent;
@@ -99,6 +126,18 @@ h2 {
   font-size: 24px;
 }
 
+.enter-cube-container {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  z-index: 9;
+  top: 50%;
+  transition: 0.4s;
+}
+.enter-cube-container.enter-cube-top {
+  top: 30px;
+}
+
 #menu {
   text-align: center;
 }
@@ -111,10 +150,10 @@ h2 {
   padding: 10px 20px;
   margin: 5px 0;
   font-family: "Neue Haas Grotesk Text Pro Bold";
-  background: transparent;
-  border: solid 2px;
+  background: rgba(255, 237, 125, 0.5);
+  border: solid 1px;
   display: inline-block;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
 }
 
@@ -127,24 +166,11 @@ h2 {
   z-index: 99;
 }
 
-.cube-wrapper {
-  width: 100%;
-  height: 100%;
-  transform: scale(0.5);
-  transform-style: preserve-3d;
-  transition: 0.5s;
-  cursor: pointer;
-}
-.cube-wrapper.cube-zoomedin {
-  transform: scale(0.9);
-  cursor: unset;
-}
-
 .festival-landing-introduction {
   position: absolute;
   width: 300px;
   color: #000000;
-  left: 100px;
+  left: 150px;
   top: 100px;
 }
 
@@ -180,15 +206,15 @@ h2 {
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #pages #main {
-  background-color: #ff9953;
+  background-color: #ffffff;
 }
 
 #pages #about {
-  background-color: orangered;
+  background-color: rgba(255, 69, 0, 0);
   -webkit-transform-origin: center;
   -o-transform-origin: center;
   transform-origin: center;
@@ -199,13 +225,13 @@ h2 {
 #pages #work {
   -webkit-transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
   transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
-  background-color: #d4ff00;
+  background-color: rgba(212, 255, 0, 0);
 }
 
 #pages #contact {
   -webkit-transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
   transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
-  background-color: #aab3b3;
+  background-color: rgba(170, 179, 179, 0);
 }
 
 #main .main-content {
@@ -221,6 +247,9 @@ h2 {
   height: 500px;
   margin-bottom: 30px;
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
 }
 .project-item:after {
   position: absolute;
@@ -229,14 +258,16 @@ h2 {
   top: 0;
   left: 0;
   content: "";
-  background: #f0cf00;
-  opacity: 0.9;
+  background: #000a52;
+  opacity: 0.8;
   z-index: 1;
+  transition: 0.4s;
 }
 .project-item h3 {
   z-index: 2;
+  width: 100%;
   position: relative;
-  margin-bottom: 0;
+  margin-bottom: 30px;
   font-size: 50px;
   font-family: "Neue Haas Grotesk Text Pro Bold";
   color: white;
@@ -244,6 +275,36 @@ h2 {
   /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
+}
+.project-item h4 {
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+}
+.project-item p {
+  font-size: 18px;
+  color: white;
+  z-index: 2;
+  position: relative;
+  line-height: 20px;
+  display: block;
+  width: 100%;
+}
+.project-item .project-item-bg-img {
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(1);
+  transition: 0.4s;
+}
+.project-item:hover .project-item-bg-img {
+  filter: grayscale(0);
+}
+.project-item:hover:after {
+  opacity: 0;
 }
 
 .chatroom-content {

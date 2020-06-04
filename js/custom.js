@@ -331,6 +331,8 @@ $('#room-navigation li').click( function() {
  function  zoomedInCube(zoominonce) {
      if ( zoominonce == false) {
          $('.cube-wrapper').toggleClass('cube-zoomedin');
+         $('.enter-cube-container').toggleClass('enter-cube-top');
+         $('.world-container').toggleClass('world-active');
          if ( $('#enter-cube').text() === 'Enter me' ){
              $('#enter-cube').text('Close me');
          } else {
@@ -339,6 +341,8 @@ $('#room-navigation li').click( function() {
          }
      } else if ( zoominonce == true) {
          $('.cube-wrapper').addClass('cube-zoomedin');
+         $('.enter-cube-container').addClass('enter-cube-top');
+         $('.world-container').addClass('world-active');
          if ( $('#enter-cube').text() === 'Enter me' ){
              $('#enter-cube').text('Close me');
          }

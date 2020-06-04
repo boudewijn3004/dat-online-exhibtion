@@ -7,8 +7,7 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
     <link href="vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="vendor/fontawesome/css/solid.min.css" rel="stylesheet" type="text/css" />
-    <link href="vendor/fontawesome/css/brands.min.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" />
     <link href="css/chat.css" rel="stylesheet" type="text/css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script type='text/javascript' src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
@@ -20,111 +19,132 @@
     </style>
 </head>
 <body>
-<div class="festival-title">
-    <h1>re(title) festival</h1>
-</div>
-        <nav class="main-navigation">
-            <section id="room-buttons">
-                <article class="buttons-navi">
+    <div class="festival-title">
+        <h1>re(title) festival</h1>
+    </div>
+    <div class="enter-cube-container">
+        <button class="btn btn-primary" id="enter-cube">Enter me</button>
+    </div>
+    <nav class="main-navigation">
+        <section id="room-buttons">
+            <article class="buttons-navi">
 
 
-                </article>
+            </article>
 
-            </section>
-            <section id="menu">
-                <span class="button-prev"><i class="fa fa-arrow-left"></i></span>
-                <ul id="room-navigation" class="d-inline-block">
-                    <li id="front">Main Festival</li>
-                    <li id="right">Live Chat</li>
-                    <li id="back">Livestreams</li>
-                    <li id="left">Soundscapes</li>
-                </ul>
-                <span class="button-next"><i class="fa fa-arrow-right"></i></span>
-                <div class="enter-cube-container">
-                    <button class="btn btn-primary" id="enter-cube">Enter me</button>
-                </div>
-            </section>
+        </section>
+        <section id="menu">
+            <span class="button-prev"><i class="fal fa-arrow-left"></i></span>
+            <ul id="room-navigation" class="d-inline-block">
+                <li id="front">Main Festival</li>
+                <li id="right">Live Chat</li>
+                <li id="back">Livestreams</li>
+                <li id="left">Soundscapes</li>
+            </ul>
+            <span class="button-next"><i class="fal fa-arrow-right"></i></span>
 
-        </nav>
-<div class="festival-landing-introduction">
-<!--    <h2>Introducing Re_title Festival</h2>-->
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
+        </section>
 
+    </nav>
+    <div class="festival-landing-introduction">
+    <!--    <h2>Introducing Re_title Festival</h2>-->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="world-container">
         <div class="cube-wrapper">
-        <main id="pages">
-            <section id="main">
-                <article class="main-content">
-                    Main Festival
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="project-item" style="background-image: url(images/manali-art.png);">
-                                <h3>Poly</h3>
-                                <h4>By Manali</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="project-item">
-                                <h3>My biggest frustrations</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="project-item">
-                                <h3>My biggest frustrations</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="project-item">
-                                <h3>My biggest frustrations</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="project-item">
-                                <h3>My biggest frustrations</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="project-item">
-                                <h3>My biggest frustrations</h3>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </section>
-            <section id="about">
-                <article class="about-content">
-                    Extra room
-                </article>
-            </section>
-            <section id="work">
-                <article class="chatroom-content">
-                    <h3>Chatroom</h3>
-                    <div class="create-username-container">
-                        <form class="username-creation" onsubmit="return false;">
-                            <input class="username_input" placeholder="Create username" type="text"/>
-                            <input class="username_submit" value="Enter chatroom" type="submit"/>
-                        </form>
-                    </div>
-                    <div class="chatroom-container" style="display:none;">
-                        <div class="members-count">-</div>
-                        <div class="members-list">-</div>
-                        <div class="messages"></div>
-                        <form class="message-form" onsubmit="return false;">
-                            <input class="message-form__input" placeholder="Type a message.." type="text"/>
-                            <input class="message-form__button" value="Send" type="submit"/>
-                        </form>
-                    </div>
+            <main id="pages">
+                <section id="main">
+                    <article class="main-content">
+                        Main Festival
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="project-item  align-content-end">
+                                    <div class="project-item-bg-img" style="background-image: url(images/manali-art.png);"></div>
 
-                </article>
-            </section>
-            <section id="contact">
-                <article class="contact-content">
-                    Credits
-                </article>
-            </section>
-        </main>
+                                    <h3>Poly</h3>
+                                    <p>Almost all forms of plastic start with Poly- and so this is "Poly" an abstract visualization of plastic.</p>
+                                    <h4>By Manali</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="project-item  align-content-start">
+                                    <div class="project-item-bg-img" style="background-image: url(images/yang-art.jpg);"></div>
+                                    <h3>On the phone with the wind</h3>
+                                    <p>Soundscape.</p>
+                                    <h4>By Yang</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="project-item  align-content-end">
+                                    <div class="project-item-bg-img" style="background-image: url(images/guido-art.png);"></div>
+                                    <h3>Resistance and the Glitch</h3>
+                                    <p>Inspired by the work of Rosa Menkman and my personal fascination with glitch art I explored the very act of a glitch.</p>
+                                    <h4>By Guido</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="project-item  align-content-end">
+                                    <div class="project-item-bg-img" style="background-image: url(images/manali-art.png);"></div>
 
+                                    <h3>Poly</h3>
+                                    <p>Almost all forms of plastic start with Poly- and so this is "Poly" an abstract visualization of plastic.</p>
+                                    <h4>By Manali</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="project-item  align-content-start">
+                                    <div class="project-item-bg-img" style="background-image: url(images/yang-art.jpg);"></div>
+                                    <h3>On the phone with the wind</h3>
+                                    <p>Soundscape.</p>
+                                    <h4>By Yang</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="project-item  align-content-end">
+                                    <div class="project-item-bg-img" style="background-image: url(images/guido-art.png);"></div>
+                                    <h3>Resistance and the Glitch</h3>
+                                    <p>Inspired by the work of Rosa Menkman and my personal fascination with glitch art I explored the very act of a glitch.</p>
+                                    <h4>By Guido</h4>
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+                </section>
+                <section id="about">
+                    <article class="about-content">
+                        Extra room
+                    </article>
+                </section>
+                <section id="work">
+                    <article class="chatroom-content">
+                        <h3>Chatroom</h3>
+                        <div class="create-username-container">
+                            <form class="username-creation" onsubmit="return false;">
+                                <input class="username_input" placeholder="Create username" type="text"/>
+                                <input class="username_submit" value="Enter chatroom" type="submit"/>
+                            </form>
+                        </div>
+                        <div class="chatroom-container" style="display:none;">
+                            <div class="members-count">-</div>
+                            <div class="members-list">-</div>
+                            <div class="messages"></div>
+                            <form class="message-form" onsubmit="return false;">
+                                <input class="message-form__input" placeholder="Type a message.." type="text"/>
+                                <input class="message-form__button" value="Send" type="submit"/>
+                            </form>
+                        </div>
+
+                    </article>
+                </section>
+                <section id="contact">
+                    <article class="contact-content">
+                        Credits
+                    </article>
+                </section>
+            </main>
         </div>
+    </div>
 
 <!--        <div class="switch-rooms">-->
 <!--            <button class="room-btn" data-room="side">GA NAAR CHAT</button>-->
