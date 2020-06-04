@@ -1,9 +1,18 @@
+.chatroom-container {
+    width: 600px;
+}
+
 .members-count,
 .members-list,
 .messages {
-    border: 1px solid #e4e4e4;
+    background: #ffffff;
     padding: 15px;
     margin-bottom: 15px;
+}
+
+.members-count {
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .messages {
@@ -23,6 +32,7 @@
 .member {
     padding-right: 10px;
     position: relative;
+    font-size: 14px;
 }
 
 .message-form {
@@ -37,4 +47,5 @@
 }
 .message-form__button {
     margin: 10px;
+    font-size: 16px;
 }

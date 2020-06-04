@@ -25,12 +25,17 @@
 }
 html {
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: "Courier Prime", monospace;
-  background: #f0cf00;
+  background: #ffe440;
   min-height: 100%;
+}
+
+p {
+  font-size: 22px;
 }
 
 h1 {
@@ -106,6 +111,38 @@ h2 {
   -webkit-text-stroke-color: black;
 }
 
+.festival-timetable {
+  width: 400px;
+  position: fixed;
+  right: 150px;
+  bottom: 150px;
+  z-index: 2;
+}
+.festival-timetable h4 {
+  font-size: 20px;
+}
+.festival-timetable .timetable-item {
+  border-bottom: solid 1px;
+  padding: 10px 20px;
+}
+.festival-timetable .timetable-item h2 {
+  color: #36b29d;
+  -webkit-text-fill-color: transparent;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #36b29d;
+}
+.festival-timetable .timetable-item:nth-child(odd) h2 {
+  color: #a54a96;
+  -webkit-text-fill-color: transparent;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #a54a96;
+}
+.festival-timetable .timetable-item:last-child {
+  border-bottom: none;
+}
+
 #room-buttons {
   text-align: center;
   margin-bottom: 20px;
@@ -172,6 +209,9 @@ h2 {
   color: #000000;
   left: 150px;
   top: 100px;
+}
+.festival-landing-introduction p {
+  font-size: 16px;
 }
 
 #pages {
@@ -307,8 +347,24 @@ h2 {
   opacity: 0;
 }
 
+.project-details {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  padding: 50px;
+  height: 100%;
+  background: #ffffff;
+  z-index: 5;
+  display: none;
+}
+.project-details .project-detail-item {
+  display: none;
+}
+
 .chatroom-content {
   padding: 30px;
+  margin: auto;
 }
 
 /*# sourceMappingURL=style.css.map */

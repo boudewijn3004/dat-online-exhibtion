@@ -22,6 +22,19 @@
     <div class="festival-title">
         <h1>re(title) festival</h1>
     </div>
+    <div class="festival-timetable">
+        <h3>TIMETABLE</h3>
+        <div class="timetable-item">
+            <h3>11:30AM</h3>
+            <h2>Livestream Sims Exhibtion</h2>
+            <h4>Enrico and Nikki will be streaming The Sims on twitch</h4>
+        </div>
+        <div class="timetable-item">
+            <h3>11:30AM</h3>
+            <h2>Livestream Minecraft</h2>
+            <h4>Guido will be streaming his Minecraft exhibtion</h4>
+        </div>
+    </div>
     <div class="enter-cube-container">
         <button class="btn btn-primary" id="enter-cube">Enter me</button>
     </div>
@@ -47,7 +60,7 @@
 
     </nav>
     <div class="festival-landing-introduction">
-    <!--    <h2>Introducing Re_title Festival</h2>-->
+        <h3>Introduction to re(title) festival</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
     <div class="world-container">
@@ -55,10 +68,10 @@
             <main id="pages">
                 <section id="main">
                     <article class="main-content">
-                        Main Festival
-                        <div class="row">
+                        <h3>Main Festival</h3>
+                        <div class="row projects-overview">
                             <div class="col-md-5">
-                                <div class="project-item  align-content-end">
+                                <div id="project-poly" class="project-item  align-content-end">
                                     <div class="project-item-bg-img" style="background-image: url(images/manali-art.png);"></div>
 
                                     <h3>Poly</h3>
@@ -109,6 +122,16 @@
                             </div>
 
                         </div>
+                        <div class="project-details">
+                            <div class="col-md-12">
+                                <div class="project-detail-item project-details-poly">
+                                    <button class="btn btn-primary project-back-btn"><i class="fal fa-arrow-left mr-2"></i>Go back to overview</button>
+                                    <h2>Poly</h2>
+                                    <p>Almost all forms of plastic start with Poly- and so this is "Poly" an abstract visualization of plastic.</p>
+                                    <img src="images/manali-art.png" width="400px" height="auto" />
+                                </div>
+                            </div>
+                        </div>
                     </article>
                 </section>
                 <section id="about">
@@ -118,7 +141,7 @@
                 </section>
                 <section id="work">
                     <article class="chatroom-content">
-                        <h3>Chatroom</h3>
+                        <h2>Chatroom</h2>
                         <div class="create-username-container">
                             <form class="username-creation" onsubmit="return false;">
                                 <input class="username_input" placeholder="Create username" type="text"/>
@@ -131,7 +154,7 @@
                             <div class="messages"></div>
                             <form class="message-form" onsubmit="return false;">
                                 <input class="message-form__input" placeholder="Type a message.." type="text"/>
-                                <input class="message-form__button" value="Send" type="submit"/>
+                                <input class="message-form__button btn btn-primary" value="Send" type="submit"/>
                             </form>
                         </div>
 
