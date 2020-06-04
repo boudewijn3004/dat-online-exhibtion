@@ -1,7 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+@font-face {
+  font-family: "Neue Haas Grotesk Text Pro Roman";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Neue Haas Grotesk Text Pro Roman"), url("../vendor/fonts/NHaasGroteskTXPro-55Rg.woff") format("woff");
+}
+@font-face {
+  font-family: "Neue Haas Grotesk Text Pro Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Neue Haas Grotesk Text Pro Italic"), url("../vendor/fonts/NHaasGroteskTXPro-56It.woff") format("woff");
+}
+@font-face {
+  font-family: "Neue Haas Grotesk Text Pro Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Neue Haas Grotesk Text Pro Bold"), url("../vendor/fonts/NHaasGroteskTXPro-75Bd.woff") format("woff");
+}
+@font-face {
+  font-family: "Neue Haas Grotesk Text Pro Bold Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Neue Haas Grotesk Text Pro Bold Italic"), url("../vendor/fonts/NHaasGroteskTXPro-76BdIt.woff") format("woff");
+}
 body {
   font-family: "Courier Prime", monospace;
-  background: #453e7b;
+  background: #f0cf00;
   -webkit-perspective: 2000px;
   perspective: 2000px;
   -webkit-perspective-origin: center;
@@ -9,6 +33,24 @@ body {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+}
+
+h1 {
+  font-family: "Neue Haas Grotesk Text Pro Bold";
+  color: black;
+  -webkit-text-fill-color: transparent;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+h2 {
+  font-family: "Neue Haas Grotesk Text Pro Bold";
+  color: black;
+  -webkit-text-fill-color: transparent;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 .room-btn {
@@ -20,16 +62,21 @@ body {
 .festival-title {
   position: fixed;
   z-index: 100;
-  top: 50px;
+  bottom: 0px;
   left: 75px;
-  transform: rotateZ(90deg);
+  transform: rotateZ(-90deg);
   transform-origin: left;
   transform-style: flat;
   right: 0;
 }
 .festival-title h1 {
-  color: #ffffff;
   font-size: 60px;
+  font-family: "Neue Haas Grotesk Text Pro Bold";
+  color: black;
+  -webkit-text-fill-color: transparent;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
 }
 
 #room-buttons {
@@ -38,13 +85,18 @@ body {
 }
 #room-buttons .button {
   padding: 10px 20px;
-  background: red;
-  color: #ffffff;
+  color: #000000;
   font-weight: 700;
   letter-spacing: 0.4px;
   display: inline-block;
   cursor: pointer;
   border-radius: 50px;
+}
+
+.button-prev, .button-next {
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 24px;
 }
 
 #menu {
@@ -58,15 +110,17 @@ body {
 #menu ul li {
   padding: 10px 20px;
   margin: 5px 0;
-  background: #ffffff;
+  font-family: "Neue Haas Grotesk Text Pro Bold";
+  background: transparent;
+  border: solid 2px;
   display: inline-block;
-  border-radius: 50px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .main-navigation {
   position: fixed;
-  top: 10px;
+  bottom: 10px;
   left: 0px;
   width: 100%;
   padding: 20px;
@@ -79,9 +133,20 @@ body {
   transform: scale(0.5);
   transform-style: preserve-3d;
   transition: 0.5s;
+  cursor: pointer;
 }
-.cube-wrapper:hover {
-  transform: scale(0.8);
+.cube-wrapper.cube-zoomedin {
+  transform: scale(0.9);
+  cursor: unset;
+}
+
+.festival-landing-introduction {
+  position: absolute;
+  z-index: 99;
+  width: 300px;
+  color: #000000;
+  left: 100px;
+  top: 100px;
 }
 
 #pages {
@@ -116,14 +181,15 @@ body {
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
+  overflow-y: scroll;
 }
 
 #pages #main {
-  background-color: rgba(255, 217, 0, 0.8);
+  background-color: #ff9953;
 }
 
 #pages #about {
-  background-color: rgba(255, 69, 0, 0.8);
+  background-color: orangered;
   -webkit-transform-origin: center;
   -o-transform-origin: center;
   transform-origin: center;
@@ -134,23 +200,27 @@ body {
 #pages #work {
   -webkit-transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
   transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
-  background-color: rgba(212, 255, 0, 0.8);
+  background-color: #d4ff00;
 }
 
 #pages #contact {
   -webkit-transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
   transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
-  background-color: rgba(170, 179, 179, 0.8);
+  background-color: #aab3b3;
 }
 
 #main .main-content {
   width: 100%;
-  padding: 20px;
+  padding: 50px;
+  position: absolute;
+  top: 0;
 }
 
 .project-item {
   background: #ffffff;
   padding: 30px;
+  height: 500px;
+  margin-bottom: 30px;
 }
 .project-item h3 {
   margin-bottom: 0;

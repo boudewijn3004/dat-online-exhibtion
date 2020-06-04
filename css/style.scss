@@ -1,13 +1,43 @@
+@import 'variables';
+
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
-$main-color: red;
-$room-height: 500px;
-$room-width: 500px;
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Text Pro Roman';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Neue Haas Grotesk Text Pro Roman'), url('../vendor/fonts/NHaasGroteskTXPro-55Rg.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Text Pro Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Neue Haas Grotesk Text Pro Italic'), url('../vendor/fonts/NHaasGroteskTXPro-56It.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Text Pro Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Neue Haas Grotesk Text Pro Bold'), url('../vendor/fonts/NHaasGroteskTXPro-75Bd.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Text Pro Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Neue Haas Grotesk Text Pro Bold Italic'), url('../vendor/fonts/NHaasGroteskTXPro-76BdIt.woff') format('woff');
+}
 
 body {
   //font-family: sans-serif;
   font-family: 'Courier Prime', monospace;
-  background: #453e7b;
+  background: $main-color;
   -webkit-perspective: 2000px;
   perspective: 2000px;
   -webkit-perspective-origin: center;
@@ -17,9 +47,25 @@ body {
   height: 100vh;
 }
 
+ h1 {
+   font-family: 'Neue Haas Grotesk Text Pro Bold';
+   color: black;
+   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: black;
+ }
+
+h2 {
+  font-family: 'Neue Haas Grotesk Text Pro Bold';
+  color: black;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
 .room-btn {
   padding: 20px;
-  background: $main-color;
+  background: $alt-color;
   color: #ffffff;;
 }
 
@@ -27,17 +73,22 @@ body {
 .festival-title {
   position: fixed;
   z-index: 100;
-  top: 50px;
+  bottom: 0px;
   left: 75px;
-  transform: rotateZ(90deg);
+  transform: rotateZ(-90deg);
   transform-origin: left;
   transform-style: flat;
   right: 0;
 
 
   h1 {
-    color: #ffffff;
     font-size: 60px;
+    font-family: 'Neue Haas Grotesk Text Pro Bold';
+    color: black;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+
   }
 }
 
@@ -46,8 +97,8 @@ body {
   margin-bottom: 20px;
   .button {
     padding: 10px 20px;
-    background: $main-color;
-    color: #ffffff;
+    //background: $alt-color;
+    color: #000000;
     font-weight: 700;
     letter-spacing: 0.4px;
     display: inline-block;
@@ -56,6 +107,11 @@ body {
   }
 }
 
+.button-prev, .button-next {
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
 
 #menu  {
   text-align: center;
@@ -66,9 +122,12 @@ body {
     li {
       padding: 10px 20px;
       margin: 5px 0;
-      background: #ffffff;
+      font-family: 'Neue Haas Grotesk Text Pro Bold';
+
+      background: transparent;
+      border: solid 2px;
       display: inline-block;
-      border-radius: 50px;
+      border-radius: 10px;
       cursor: pointer;
     }
   }
@@ -78,7 +137,7 @@ body {
 
 .main-navigation {
   position: fixed;
-  top: 10px;
+  bottom: 10px;
   left: 0px;
   width: 100%;
   padding: 20px;
@@ -95,11 +154,22 @@ body {
   transform: scale(0.5);
   transform-style: preserve-3d;
   transition: 0.5s;
+  cursor: pointer;
 
-  &:hover {
-    transform: scale(0.8);
+  &.cube-zoomedin {
+    transform: scale(0.9);
+    cursor: unset;
 
   }
+}
+
+.festival-landing-introduction {
+  position: absolute;
+  z-index: 99;
+  width: 300px;
+  color: #000000;
+  left: 100px;
+  top: 100px;
 }
 
 #pages {
@@ -134,14 +204,15 @@ body {
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
+  overflow-y: scroll;
 }
 
 #pages #main {
-  background-color: rgba(255, 217, 0, 0.8);
+  background-color: rgb(255, 153, 83);
 }
 
 #pages #about {
-  background-color: rgba(255, 69, 0, 0.8);
+  background-color: rgba(255, 69, 0);
   -webkit-transform-origin: center;
   -o-transform-origin: center;
   transform-origin: center;
@@ -152,13 +223,13 @@ body {
 #pages #work {
   -webkit-transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
   transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
-  background-color: rgba(212, 255, 0, 0.8);
+  background-color: rgba(212, 255, 0);
 }
 
 #pages #contact {
   -webkit-transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
   transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
-  background-color: rgba(170, 179, 179, 0.8);
+  background-color: rgba(170, 179, 179);
 }
 
 
@@ -167,13 +238,17 @@ body {
 #main {
   .main-content {
     width: 100%;
-    padding: 20px;
+    padding: 50px;
+    position: absolute;
+    top: 0;
   }
 }
 
 .project-item {
   background: #ffffff;
   padding: 30px;
+  height: 500px;
+  margin-bottom: 30px;
   h3 {
     margin-bottom: 0;
   }

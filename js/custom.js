@@ -114,7 +114,7 @@ function Navigation (pagestrs) {
     }
 
     const handleNextPageClick = () => {
-        const buttonNext = buttons.find('.buttons-navi .button:nth-child(2)');
+        const buttonNext = $('.button-next');
         const clickEvent = () => {
             pagestrs.change(0);
         }
@@ -125,7 +125,7 @@ function Navigation (pagestrs) {
     }
 
     const handlePrevPageClick = () => {
-        const buttonPrev = buttons.find('.buttons-navi .button:nth-child(1)');
+        const buttonPrev = $('.button-prev');
         const clickEvent = () => {
             pagestrs.change(1);
         }
@@ -320,6 +320,33 @@ function Apx (navigation, pagesTransition) {
 const app = new Apx(Navigation, PageTransitions);
 app.init();
 
+$('#enter-cube').click( function() {
+    zoomedInCube(false)
+});
+
+$('#room-navigation li').click( function() {
+    zoomedInCube(true)
+});
+
+ function  zoomedInCube(zoominonce) {
+     if ( zoominonce == false) {
+         $('.cube-wrapper').toggleClass('cube-zoomedin');
+         if ( $('#enter-cube').text() === 'Enter me' ){
+             $('#enter-cube').text('Close me');
+         } else {
+             $('#enter-cube').text('Enter me');
+
+         }
+     } else if ( zoominonce == true) {
+         $('.cube-wrapper').addClass('cube-zoomedin');
+         if ( $('#enter-cube').text() === 'Enter me' ){
+             $('#enter-cube').text('Close me');
+         }
+     }
+
+
+}
+
 
 // $( "body" ).mousemove(function( event ) {
 //     var mouseX = event.pageX/5;
@@ -329,4 +356,4 @@ app.init();
 //         $( "main#pages" ).css("transform", 'rotateY(' + mouseX + 'deg)');
 //     }
 //
-// });a
+// });
