@@ -123,7 +123,6 @@ h2 {
       padding: 10px 20px;
       margin: 5px 0;
       font-family: 'Neue Haas Grotesk Text Pro Bold';
-
       background: transparent;
       border: solid 2px;
       display: inline-block;
@@ -163,9 +162,10 @@ h2 {
   }
 }
 
+
 .festival-landing-introduction {
   position: absolute;
-  z-index: 99;
+  //z-index: 99;
   width: 300px;
   color: #000000;
   left: 100px;
@@ -249,8 +249,28 @@ h2 {
   padding: 30px;
   height: 500px;
   margin-bottom: 30px;
+  position: relative;
+  &:after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    background: $main-color;
+    opacity: 0.9;
+    z-index: 1;
+  }
   h3 {
+    z-index: 2;
+    position: relative;
     margin-bottom: 0;
+    font-size: 50px;
+    font-family: $heading-font;
+    color: white;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
   }
 }
 
