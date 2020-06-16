@@ -1,3 +1,35 @@
+$.fn.rotationInfo = function() {
+    var el = $(this),
+        tr = el.css("-webkit-transform") || el.css("-moz-transform") || el.css("-ms-transform") || el.css("-o-transform") || '',
+        info = {rad: 0, deg: 0};
+    if (tr = tr.match('matrix\\((.*)\\)')) {
+        tr = tr[1].split(',');
+        if(typeof tr[0] != 'undefined' && typeof tr[1] != 'undefined') {
+            info.rad = Math.atan2(tr[1], tr[0]);
+            info.deg = parseFloat((info.rad * 180 / Math.PI).toFixed(1));
+        }
+    }
+    return info;
+};
+
+
+
+
+$('.button-prev').mouseenter( function () {
+    // resetCubePosition()
+});
+// function resetCubePosition() {
+    // var angle1 = $('#pages').rotationInfo().deg;
+    // $('#pages').css({ 'transform' : '' });
+//     alert($('#pages').rotationInfo().deg);
+//
+//     if ( angle1 === '90deg' ) {
+//         alert('asdfasdf');
+//
+//     }
+// }
+
+
 function PageTransitions () {
     const pages = $('#pages');
 
@@ -374,6 +406,10 @@ $('.project-back-btn').click( function () {
 });
 
 
+// while ( !$('#pages').hasClass('veloctiyAnimating') );
+
+
+//
 // $( "body" ).mousemove(function( event ) {
 //     var mouseX = event.pageX/5;
 //     var isHovered = $('.cube-wrapper').is(":hover"); // returns true or false
