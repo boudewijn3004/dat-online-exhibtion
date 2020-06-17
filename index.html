@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RE_TITLE FESTIVAL</title>
+    <title>re(title) -  Online Exhibtion Festival</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
     <link href="vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet" type="text/css" />
@@ -19,8 +21,12 @@
     </style>
 </head>
 <body>
+<div id="exhibtion-alert" style="display: none;">
+    <i class="far fa-alarm-clock"></i>Blbalba Is about to start
+    <a href="#" class="btn btn-primary">Go meteen <i class="fal fa-arrow-right ml-2"></i> </a>
+</div>
     <div class="festival-title">
-        <h1>re(title)</h1>
+        <h1 id="changingtitle">re(title)</h1>
     </div>
     <div class="festival-timetable">
         <h3>TIMETABLE</h3>
@@ -47,97 +53,105 @@
 
         </section>
         <section id="menu">
-            <span class="button-prev"><i class="fal fa-arrow-left"></i></span>
+            <button class="button-prev navigation-button"><i class="fal fa-arrow-left"></i></button>
             <ul id="room-navigation" class="d-inline-block">
                 <li id="left">Re(play)</li>
-                <li id="front">Re(imagine)</li>
+                <li id="front" class="active">Re(imagine)</li>
                 <li id="right">re(collect)</li>
-                <li id="back">Soundscapes</li>
+                <li id="back">Chatroom</li>
             </ul>
-            <span class="button-next"><i class="fal fa-arrow-right"></i></span>
+            <button class="button-next navigation-button"><i class="fal fa-arrow-right"></i></button>
 
         </section>
 
     </nav>
     <div class="festival-landing-introduction">
-        <h3>Introduction to re(title) festival</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h3>
+            The time is now - welcome to re(title).
+        </h3>
+        <p>
+            The four walls in our room created distance from the outside world. Through the web, we aim to create a mobile exhibition space where everyone is welcome to join. Through the time of isolation, our surroundings are constantly changing and reinventing. We want to regain vision of what is happening, open our minds to a different present, and hold on to our values.
+            <br>
+            <br>
+            We explore a different kind of collective energy that brings us together online. re(title) festival contains a variety of online mediums and platforms. These performances can be viewed at any location and at any moment.
+            <br>
+            <br>
+           <b> Welcome to re(title), have a great trip!</b>
+        </p>
     </div>
     <div class="world-container">
         <div class="cube-wrapper">
             <main id="pages">
-                <section id="main">
+                <section id="reimagineside">
                     <article class="main-content">
-                        <h3>Main Festival</h3>
-                        <div class="row projects-overview">
-                            <div class="col-md-5">
-                                <div id="project-poly" class="project-item  align-content-end">
-                                    <div class="project-item-bg-img" style="background-image: url(images/manali-art.png);"></div>
-
-                                    <h3>Poly</h3>
-                                    <p>Almost all forms of plastic start with Poly- and so this is "Poly" an abstract visualization of plastic.</p>
-                                    <h4>By Manali</h4>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="project-item  align-content-start">
-                                    <div class="project-item-bg-img" style="background-image: url(images/yang-art.jpg);"></div>
-                                    <h3>On the phone with the wind</h3>
-                                    <p>Soundscape.</p>
-                                    <h4>By Yang</h4>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="project-item  align-content-end">
-                                    <div class="project-item-bg-img" style="background-image: url(images/guido-art.png);"></div>
-                                    <h3>Resistance and the Glitch</h3>
-                                    <p>Inspired by the work of Rosa Menkman and my personal fascination with glitch art I explored the very act of a glitch.</p>
-                                    <h4>By Guido</h4>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="project-item  align-content-end">
-                                    <div class="project-item-bg-img" style="background-image: url(images/manali-art.png);"></div>
-
-                                    <h3>Poly</h3>
-                                    <p>Almost all forms of plastic start with Poly- and so this is "Poly" an abstract visualization of plastic.</p>
-                                    <h4>By Manali</h4>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="project-item  align-content-start">
-                                    <div class="project-item-bg-img" style="background-image: url(images/yang-art.jpg);"></div>
-                                    <h3>On the phone with the wind</h3>
-                                    <p>Soundscape.</p>
-                                    <h4>By Yang</h4>
+                        <h3 class="overview-title">re(imagine)</h3>
+                        <div class="row projects-overview justify-content-center pt-5" id="overview-reimagine">
+                            <div class="col-md-7 pr-5 mb-5">
+                                <div id="project-exhibition-i" data-category="reimagine" class="project-item  align-content-end">
+                                    <div class="project-item-bg-img" style="background-image: url(images/exhitbions-thumbnails/i-thumbnail.jpg);"></div>
+                                    <h3>Exhibition I  </h3>
+                                    <p>With All These Words, Are You Here?
+                                    </p>
+                                    <h4>By Marieke & Aafje & Yang & Kseniia
+                                    </h4>
                                 </div>
                             </div>
                             <div class="col-md-5">
-                                <div class="project-item  align-content-end">
-                                    <div class="project-item-bg-img" style="background-image: url(images/guido-art.png);"></div>
-                                    <h3>Resistance and the Glitch</h3>
-                                    <p>Inspired by the work of Rosa Menkman and my personal fascination with glitch art I explored the very act of a glitch.</p>
-                                    <h4>By Guido</h4>
+                                <div id="project-iridescence" data-category="reimagine" class="project-item text-right align-content-end">
+                                    <div class="project-item-bg-img" style="background-image: url(images/exhitbions-thumbnails/bubbles-thumbnail.jpg); background-position: right;"></div>
+                                    <h3>
+                                        Iridescence
+                                    </h3>
+                                    <p>
+                                        360 bubble view
+                                    </p>
+                                    <h4 style="margin-left: auto;">By Jonas & Rein
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-8 justify-content-end">
+                                <div id="project-soundscapes" data-category="reimagine" class="project-item  align-content-end">
+                                    <div class="project-item-bg-img" style="background-image: url(images/exhitbions-thumbnails/soundsculptures-thumbnail.jpg);"></div>
+                                    <h3>Soundscapes</h3>
+                                    <p>Soundsculptures realized in a 3D enviroment based on the soundscapes.</p>
+                                    <h4>By DAT 1&2</h4>
                                 </div>
                             </div>
 
+
                         </div>
-                        <div class="project-details">
-                            <div class="col-md-12">
-                                <div class="project-detail-item project-details-poly">
-                                    <button class="btn btn-primary project-back-btn"><i class="fal fa-arrow-left mr-2"></i>Go back to overview</button>
-                                    <h2>Poly</h2>
-                                    <p>Almost all forms of plastic start with Poly- and so this is "Poly" an abstract visualization of plastic.</p>
-                                    <img src="images/manali-art.png" width="400px" height="auto" />
-                                </div>
-                            </div>
+                        <!-- re-imagine project details items -->
+                        <!--  Exhibtion I -->
+                        <div class="project-detail-item" data-category="reimagine" data-contentid="project-exhibition-i">
+                            <button class="btn btn-primary project-back-btn" data-category="reimagine"><i class="fal fa-arrow-left mr-2"></i>Go back to overview</button>
+                            <h2>Exhibtion I</h2>
+                            <p>
+                                For this exhibition, we are showing pieces of text and highlighting parts which all artists have in common --- an intention. In the live performance, we will be changing the pronoun “I” into artists’ names. The rest of the descriptions are then turned white. We question the curation of text in exhibitions --- with all these words, are the artists really present? The waiting room of the exhibition is to reflect on the issue of overcrowded museums. We question the mentality of viewing art as objects. In large openings, the artwork is often hidden behind the crowd of people waiting to view. Yet, we can always read the text standing by its side. This also reinforces the fact that text partakes an impactful role in how we view art at exhibitions.
+                            </p>
+                            <img src="images/exhitbions-thumbnails/i-thumbnail.jpg" width="100%" height="auto" />
                         </div>
+                        <!--   Iridescence -->
+                        <div class="project-detail-item" data-category="reimagine" data-contentid="project-iridescence">
+                            <button class="btn btn-primary project-back-btn" data-category="reimagine"><i class="fal fa-arrow-left mr-2"></i>Go back to overview</button>
+                            <h2>Iridescence</h2>
+                            <p>
+                                360 bubble view
+                            </p>
+                            <img src="images/exhitbions-thumbnails/bubbles-thumbnail.jpg" width="100%" height="auto" />
+                        </div>
+                        <!--   Soundscapes -->
+                        <div class="project-detail-item" data-category="reimagine" data-contentid="project-soundscapes">
+                            <button class="btn btn-primary project-back-btn" data-category="reimagine"><i class="fal fa-arrow-left mr-2"></i>Go back to overview</button>
+                            <h2>Soundscapes</h2>
+                            <p>
+                                Soundsculptures realized in a 3D enviroment based on the soundscapes.
+                            </p>
+                            <img src="images/exhitbions-thumbnails/soundsculptures-thumbnail.jpg" width="100%" height="auto" />
+                        </div>
+
                     </article>
                 </section>
-                <section id="about">
-                    <article class="about-content">
-                       <h2>Soundscapes</h2>
-                    </article>
+                <section id="chatroomside">
                     <article class="chatroom-content">
                         <h2>Chatroom</h2>
                         <div class="create-username-container">
@@ -158,94 +172,130 @@
 
                     </article>
                 </section>
-                <section id="work">
-
-                </section>
-                <section id="contact">
+                <section id="recollectside">
                     <article class="main-content">
-                        <h3>Livestreams</h3>
-                        <div class="row projects-overview">
+                        <h3 class="overview-title">re(collect)</h3>
+                        <div class="row projects-overview pt-5 justify-content-center" id="overview-recollect">
+                            <div class="col-md-8 mb-5">
+                                <div id="project-insideout" data-category="recollect" class="project-item recollect-item align-content-start">
+                                    <div class="project-item-bg-img" style="background-image: url(images/exhitbions-thumbnails/insideout_thumbnail.jpg);"></div>
+                                    <h3>Inside Out </h3>
+                                    <p>An Inside Out look at our current situation. This exhibition takes a look at the outside world during the current pandemic.
+                                    </p>
+                                    <h4>
+                                        By Puck & Manali
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div id="project-secondhanddata" data-category="recollect" class="project-item recollect-item align-content-end">
+                                    <div class="project-item-bg-img" style="background-image: url(images/exhitbions-thumbnails/secondhand-thumbnail.png);"></div>
+                                    <h3>
+                                        Second Hand DATA
+                                    </h3>
+                                    <p>
+                                        Second Hand DATA Exhibition Space Digital Art And Technology Arnhem Marktplaats Exhibition Behaving As If Non-Physical Objects Are Actually Physical Objects That Are For Sale While They Are Actually Not To Confuse Passersby And Really Also People Who Know What's Going On The Objective Is To Create Embrace A Short Moment Of Disbelief And Or Spirituality.
+
+                                    </p>
+                                    <h4>By Bart & Hugo
+                                    </h4>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <!-- re-collect project details items -->
+                        <!--  Inside out -->
+                        <div class="project-detail-item" data-category="recollect" data-contentid="project-insideout" style="background-image: url(images/insideout/background-insideout.png);">
+                            <button class="btn btn-primary project-back-btn" data-category="recollect"><i class="fal fa-arrow-left mr-2"></i>Go back to overview</button>
+                            <div class="text-center">
+                                <h2>
+                                    Inside Out
+                                </h2>
+                                <p>
+                                    Inside Out
+                                    An Inside Out look at our current situation. <br>This exhibition takes a look at the outside world during the current pandemic.
+                                </p>
+                               <a href="https://www.instagram.com/out._.side._.in/" target="_blank" class="insideout-heart" style="background-image: url(images/insideout/heart.png)";>Enter</a>
+                            </div>
+                        </div>
+                        <!--  secondhanddata  -->
+                        <div class="project-detail-item" data-category="recollect" data-contentid="project-secondhanddata">
+                            <button class="btn btn-primary project-back-btn" data-category="recollect"><i class="fal fa-arrow-left mr-2"></i>Go back to overview</button>
+                            <h2>
+                                Second Hand DATA
+                            </h2>
+                            <p>
+                                Second Hand DATA Exhibition Space Digital Art And Technology Arnhem Marktplaats Exhibition Behaving As If Non-Physical Objects Are Actually Physical Objects That Are For Sale While They Are Actually Not To Confuse Passersby And Really Also People Who Know What's Going On The Objective Is To Create Embrace A Short Moment Of Disbelief And Or Spirituality.
+                            </p>
+                            <img src="images/exhitbions-thumbnails/secondhand-thumbnail.png " width="100%" height="auto" />
+                        </div>
+
+
+                    </article>
+                </section>
+                <section id="replayside">
+                    <article class="main-content">
+                        <h3 class="overview-title">re(play)</h3>
+                        <div class="row projects-overview pt-5" id="overview-replay">
                             <div class="col-md-5 mb-5">
-                                <div id="project-poly" class="project-item livestream-item align-content-end">
-                                    <div class="project-item-bg-img" style="background-image: url(images/manali-art.png);"></div>
+                                <div id="project-echo" data-category="replay" class="project-item livestream-item align-content-start">
+                                    <div class="project-item-bg-img" style="background-image: url(images/exhitbions-thumbnails/echo_thumbnail.png);"></div>
 
-                                    <h3>Poly</h3>
-                                    <p>Almost all forms of plastic start with Poly- and so this is "Poly" an abstract visualization of plastic.</p>
-                                    <h4>By Manali</h4>
+                                    <h3>Echo</h3>
+                                    <p>Echo is a digital museum experience made in The Sims 4. Based on your choices  you will experience a path throughout the museum. </p>
+                                    <h4>By Nicky & Enrico</h4>
                                 </div>
-                                <h2>June 19th</h2>
-                                <h3><strike>@ 12:00</strike></h3>
-                                <h3>@ 14:00</h3>
-                                <div id="countdown" ></div>
+<!--                                <h2>June 19th</h2>-->
+<!--                                <h3><strike>@ 12:00</strike></h3>-->
+<!--                                <h3>@ 14:00</h3>-->
+<!--                                <div id="countdown" ></div>-->
                             </div>
-                            <div class="col-md-3 mb-5">
-                                <div class="project-item livestream-item align-content-start">
-                                    <div class="project-item-bg-img" style="background-image: url(images/yang-art.jpg);"></div>
-                                    <h3>On the phone with the wind</h3>
-                                    <p>Soundscape.</p>
-                                    <h4>By Yang</h4>
+                            <div class="col-md-7 mb-5 pl-5 ">
+                                <div  id="project-fun" data-category="replay" class="project-item livestream-item align-content-end">
+                                    <div class="project-item-bg-img" style="background-image: url(images/exhitbions-thumbnails/fun.png);"></div>
+                                    <h3>Fun</h3>
+                                    <p>FUN! That is what our festival is all about.
+                                        We curated three art works and exhibit them in the world of minecraft, a video game where your limitations of creating are only your imagination.
+                                        Feel free to join in with your minecraft account if you have one. If you don't we put up webcams in the minecraft world so you can have a peek.
+                                        Hope to see you there!
+                                        .</p>
+                                    <h4>By Guido & Baebae & Jochem</h4>
                                 </div>
-                                <h2>June 19th</h2>
-                                <h3><strike>@ 12:00</strike></h3>
-                                <h3>@ 14:00</h3>
-                            </div>
-                            <div class="col-md-4 mb-5">
-                                <div class="project-item livestream-item align-content-end">
-                                    <div class="project-item-bg-img" style="background-image: url(images/guido-art.png);"></div>
-                                    <h3>Resistance and the Glitch</h3>
-                                    <p>Inspired by the work of Rosa Menkman and my personal fascination with glitch art I explored the very act of a glitch.</p>
-                                    <h4>By Guido</h4>
-                                </div>
-                                <h2>June 19th</h2>
-                                <h3><strike>@ 12:00</strike></h3>
-                                <h3>@ 14:00</h3>
-                            </div><div class="col-md-3">
-                                <div id="project-poly" class="project-item livestream-item align-content-end">
-                                    <div class="project-item-bg-img" style="background-image: url(images/manali-art.png);"></div>
-
-                                    <h3>Poly</h3>
-                                    <p>Almost all forms of plastic start with Poly- and so this is "Poly" an abstract visualization of plastic.</p>
-                                    <h4>By Manali</h4>
-                                </div>
-                                <h2>June 19th</h2>
-                                <h3><strike>@ 12:00</strike></h3>
-                                <h3>@ 14:00</h3>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="project-item livestream-item align-content-start">
-                                    <div class="project-item-bg-img" style="background-image: url(images/yang-art.jpg);"></div>
-                                    <h3>On the phone with the wind</h3>
-                                    <p>Soundscape.</p>
-                                    <h4>By Yang</h4>
-                                </div>
-                                <h2>June 19th</h2>
-                                <h3><strike>@ 12:00</strike></h3>
-                                <h3>@ 14:00</h3>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="project-item livestream-item align-content-end">
-                                    <div class="project-item-bg-img" style="background-image: url(images/guido-art.png);"></div>
-                                    <h3>Resistance and the Glitch</h3>
-                                    <p>Inspired by the work of Rosa Menkman and my personal fascination with glitch art I explored the very act of a glitch.</p>
-                                    <h4>By Guido</h4>
-                                </div>
-                                <h2>June 19th</h2>
-                                <h3><strike>@ 12:00</strike></h3>
-                                <h3>@ 14:00</h3>
-                            </div>
-
-
-                        </div>
-                        <div class="project-details">
-                            <div class="col-md-12">
-                                <div class="project-detail-item project-details-poly">
-                                    <button class="btn btn-primary project-back-btn"><i class="fal fa-arrow-left mr-2"></i>Go back to overview</button>
-                                    <h2>Poly</h2>
-                                    <p>Almost all forms of plastic start with Poly- and so this is "Poly" an abstract visualization of plastic.</p>
-                                    <img src="images/manali-art.png" width="400px" height="auto" />
-                                </div>
+<!--                                <h2>June 19th</h2>-->
+<!--                                <h3><strike>@ 12:00</strike></h3>-->
+<!--                                <h3>@ 14:00</h3>-->
                             </div>
                         </div>
+                            <!-- replay project details items -->
+<!--                                ECHO -->
+                                <div class="project-detail-item" data-category="replay" data-contentid="project-echo">
+                                    <button class="btn btn-primary project-back-btn" data-category="replay"><i class="fal fa-arrow-left mr-2"></i>Go back to overview</button>
+                                    <div class="text-center">
+                                    <h2>Echo</h2>
+                                    <p>Museum in The Sims 4. A series of YouTube videos connected through embeds that allow you to walk through the museum and see it from different angles depending on the route of your choice. The museum’s theme is: Echo and the work displayed are connected to this theme. The museum itself also adds to this experience with the way it is thought out and built to enhance this experience.
+                                    </p>
+                                    <iframe width="1270" height="600" style="margin:auto;" src="https://www.youtube.com/embed/3sSr_2p7KpQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!--                                    <img src="images/exhitbions-thumbnails/echo_thumbnail.png" width="400px" height="auto" />-->
+                                    </div>
+                                </div>
+<!--                                FUN-->
+                                <div class="project-detail-item" data-category="replay" data-contentid="project-fun">
+                                    <button class="btn btn-primary project-back-btn" data-category="replay"><i class="fal fa-arrow-left mr-2"></i>Go back to overview</button>
+                                    <img src="images/exhitbions-thumbnails/fun.png" width="100%" height="auto" />
+
+                                    <h2>Fun</h2>
+                                    <p>
+                                        Show Concept: In times of a crisis like the covid-19 one people tend to think negatively. People finding it hard to put up work in difficult situations. We thought we should add a little fun. That's why we sticked with minecraft. Combining school work with a video game. It makes creating an exhibition fun and also allows all creative freedom minecraft has. Also minecraft is highly modifiable helping us shape the exhibition in any way we would like.
+                                        (NA)Description: FUN! That is what our festival is all about.
+                                        We curated three art works and exhibit them in the world of minecraft, a video game where your limitations of creating are only your imagination.
+                                        Feel free to join in with your minecraft account if you have one. If you don't we put up webcams in the minecraft world so you can have a peek.
+                                        Hope to see you there!
+
+                                    </p>
+                                </div>
+
                     </article>
                 </section>
             </main>
@@ -261,9 +311,11 @@
 <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
 <!--    <script src="https://cdn.jsdelivr.net/velocity/1.0.0/velocity.min.js"></script>-->
     <script src="vendor/velocity/velocity.min.js"></script>
+    <script src="js/cube.js"></script>
     <script src="js/chat.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/countdown.js"></script>
+<!--    <script src="js/countdown.js"></script>-->
+    <script src="js/changingtitle.js"></script>
 
     <script>
 

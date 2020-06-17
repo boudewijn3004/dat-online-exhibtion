@@ -1,356 +1,24 @@
-$.fn.rotationInfo = function() {
-    var el = $(this),
-        tr = el.css("-webkit-transform") || el.css("-moz-transform") || el.css("-ms-transform") || el.css("-o-transform") || '',
-        info = {rad: 0, deg: 0};
-    if (tr = tr.match('matrix\\((.*)\\)')) {
-        tr = tr[1].split(',');
-        if(typeof tr[0] != 'undefined' && typeof tr[1] != 'undefined') {
-            info.rad = Math.atan2(tr[1], tr[0]);
-            info.deg = parseFloat((info.rad * 180 / Math.PI).toFixed(1));
-        }
-    }
-    return info;
-};
 
-
-
-
-$('.button-prev').mouseenter( function () {
-    // resetCubePosition()
-});
+// $('.button-prev').mouseenter( function () {
+//     resetCubePosition();
+// });
+//
+//
+//
 // function resetCubePosition() {
-    // var angle1 = $('#pages').rotationInfo().deg;
-    // $('#pages').css({ 'transform' : '' });
-//     alert($('#pages').rotationInfo().deg);
+//     let pages = $('#pages')[0].style.transform;
 //
-//     if ( angle1 === '90deg' ) {
-//         alert('asdfasdf');
-//
+//     console.log(pages);
+//     if (pages === 'rotateY(-720deg)') {
+//         $('#pages').css({ 'transform' : 'rotateY(10deg)' });
 //     }
+//     // $('#pages').css({ 'transform' : 'translate' });
+//     // alert($('#pages').rotationInfo().deg);
+//
+//
 // }
 
 
-function PageTransitions () {
-    const pages = $('#pages');
-
-    const positions = {
-        front: 0,
-        right: -90,
-        back: 180,
-        left: 90,
-    }
-
-    const getCurrentTransform = () => {
-        let currentTransform = pages[0].style.transform.match(/-?\d+/g) || 0;
-        currentTransform!==0? currentTransform = parseInt(currentTransform[0]): currentTransform=0;
-        return currentTransform;
-    }
-
-    const moveCube = (page) => {
-        let target = positions[page];
-        animateCube(target);
-    }
-
-    const changePage = (direction) => {
-        let veloIsAnimating = pages.attr('class');
-        let end = direction===1? -360: 360;
-        let step = direction===1? 90: -90;
-        if (!veloIsAnimating) {
-            let current = getCurrentTransform();
-            if (current===end) {
-                pages.velocity(
-                    {
-                        rotateY:[0],
-                    },
-                    {
-                        duration: 0,
-                        complete: () => {
-                            current = getCurrentTransform();
-                            let target = (current+step);
-                            animateCube(target);
-                        }
-                    },
-                )
-            } else {
-                let target = (current+step);
-                animateCube(target);
-            }
-        }
-    }
-
-    const animateCube = (target) => {
-        pages.velocity(
-            {
-                rotateY:[target],
-            },
-            {
-                duration: 700,
-                easing: "easeInOut",
-            },
-        )
-    }
-
-    return {
-        change: changePage,
-        move: moveCube,
-    }
-}
-
-function Navigation (pagestrs) {
-    const nav = $('nav');
-    const buttons = nav.find('#room-buttons');
-    const menu = nav.find('#menu');
-    const buttonsNavi = buttons.find('.buttons-navi');
-    const buttonPrev = buttonsNavi.find('.button:nth-child(1)');
-    const buttonNext = buttonsNavi.find('.button:nth-child(2)');
-    const buttonNextContent = buttonNext.find('.button-next');
-    const buttonPrevContent = buttonPrev.find('.button-prev');
-    const buttonMenu = buttons.find('.buttons-menu .button');
-    const menuItems = menu.find('li');
-    const buttonMenuContent = buttonMenu.find('.button-wrapper');
-    const topSpan = buttonMenuContent.find('span:nth-child(1)');
-    const middleSpan = buttonMenuContent.find('span:nth-child(2)');
-    const bottomSpan = buttonMenuContent.find('span:nth-child(3)');
-    const spans = [topSpan,middleSpan,bottomSpan];
-
-    const windowOnUnload = (fn) => {
-        const unload = () => {
-            fn()
-            window.removeEventListener('unload',unload);
-        }
-        window.addEventListener('unload',unload);
-    };
-
-    const animateChangePageButton = () => {
-        const animateContent = (event) => {
-            event.data.object.velocity(
-                {
-                    scale: [1,0],
-                },
-                {
-                    duration: 1000,
-                    easing: 'spring',
-                }
-            )
-        }
-
-        buttonNext.on('mouseenter', {object: buttonNextContent}, animateContent);
-        windowOnUnload(() => {
-            buttonNext.off('mouseenter', animateContent);
-        });
-
-        buttonPrev.on('mouseenter', {object: buttonPrevContent}, animateContent);
-        windowOnUnload(() => {
-            buttonPrev.off('mouseenter', animateContent);
-        });
-    }
-
-    const handleNextPageClick = () => {
-        const buttonNext = $('.button-next');
-        const clickEvent = () => {
-            pagestrs.change(0);
-        }
-        buttonNext.on('click', clickEvent);
-        windowOnUnload(() => {
-            buttonNext.off('click', clickEvent);
-        })
-    }
-
-    const handlePrevPageClick = () => {
-        const buttonPrev = $('.button-prev');
-        const clickEvent = () => {
-            pagestrs.change(1);
-        }
-        buttonPrev.on('click', clickEvent);
-        windowOnUnload(() => {
-            buttonPrev.off('click', clickEvent);
-        })
-    }
-
-    const animateManuButton = () => {
-        topSpan.velocity(
-            {
-                rotateZ: '135deg',
-                top: '12px',
-            },
-            {
-                duration: 300,
-            }
-        );
-        middleSpan.velocity(
-            {
-                right: '40px',
-                opacity: 0,
-            },
-            {
-                duration: 300,
-            }
-        );
-        bottomSpan.velocity(
-            {
-                rotateZ: '-135deg',
-                top: '12px',
-            },
-            {
-                duration: 300,
-            }
-        );
-    }
-
-    const reverseManuButtonAnimation = () => {
-        spans.forEach((span)=>{
-            span.velocity('reverse');
-        });
-    }
-
-    const menuIn = () => {
-        buttonsNavi.hide();
-        menu.show();
-        menu.velocity(
-            {
-                translateY: [0,-180],
-                scale: [1,0],
-                opacity: [1,0],
-            },
-            {
-                duration: 2000,
-                easing: "spring",
-            }
-        )
-    }
-
-    const menuOut = () => {
-        buttonsNavi.show();
-        menu.velocity(
-            "reverse",
-            {
-                duration: 1000,
-                easing: "spring",
-                complete: () => {
-                    menu.hide();
-                }
-            }
-        );
-    }
-
-    const menuItemsIn = () => {
-        let delay = 200;
-        menuItems.each((key,item) => {
-            let it = $(item);
-            it.show();
-            it.velocity(
-                {
-                    translateX: ["0vw","-100vw"],
-                    backgroundColorAlpha: [0,1],
-                },
-                {
-                    duration: 2000,
-                    easing: "spring",
-                    delay: delay,
-                }
-            )
-            delay+=200;
-        });
-    }
-
-    const naviInSeq = () =>{
-        const seq = [
-            animateManuButton,
-            menuIn,
-            menuItemsIn,
-        ];
-        seq.forEach((anim)=>{
-            anim();
-        });
-    }
-
-    const naviOutSeq = () => {
-        const seq = [
-            reverseManuButtonAnimation,
-            menuOut,
-        ];
-        seq.forEach((anim)=>{
-            anim();
-        });
-    }
-
-    const handleMenuButtonClick = () => {
-        const handleToggle = () => {
-            let veloIsAnimating = menu.attr('class');
-            if(!veloIsAnimating) {
-                let opacity = parseInt(middleSpan.css('opacity'));
-                if(opacity===1) {
-                    naviInSeq();
-                } else {
-                    naviOutSeq();
-                }
-            }
-        }
-        buttonMenu.on('click',handleToggle);
-        windowOnUnload(()=>{
-            buttonMenu.off('click',handleToggle);
-        });
-    }
-
-    const menuItemClickSeq = [
-        reverseManuButtonAnimation,
-        menuOut,
-        pagestrs.move,
-    ];
-
-    const handleManuItemClick = () => {
-        const clickEvent = (id) => {
-            menuItemClickSeq.forEach((anim)=>{
-                anim(id);
-            });
-        };
-
-        menuItems.each((key,item) => {
-            let it = $(item);
-            it.on('click', ()=>{
-                clickEvent(it[0].id);
-            });
-            windowOnUnload(()=>{
-                it.off('click');
-            });
-        });
-    }
-
-    return {
-        animateChangePageButton: animateChangePageButton,
-        nextPage: handleNextPageClick,
-        prevPage: handlePrevPageClick,
-        menuButtonClick: handleMenuButtonClick,
-        menuItemClick: handleManuItemClick,
-    }
-}
-
-function Apx (navigation, pagesTransition) {
-    const pagesTrs = new pagesTransition();
-    const navi = new navigation(pagesTrs);
-
-    const domOnLoad = (fn) => {
-        const unload = () => {
-            window.removeEventListener('DOMContentLoaded',fn);
-            window.removeEventListener('unload',unload);
-        }
-        window.addEventListener('DOMContentLoaded',fn);
-        window.addEventListener('unload',unload);
-    };
-
-    const init = () => {
-        const onInit = Object.values(navi);
-        onInit.forEach((fn)=>{
-            domOnLoad(fn);
-        });
-    }
-    return {
-        init: init,
-    }
-}
-
-const app = new Apx(Navigation, PageTransitions);
-app.init();
 
 $('#enter-cube').click( function() {
     zoomedInCube(false)
@@ -388,24 +56,82 @@ $('#room-navigation li').click( function() {
 
 }
 
+
+
+
 // project item trigger project details
 
 $('.project-item').click( function () {
-    $('.project-details').fadeToggle();
-    $('.project-detail-item').fadeToggle();
-    $('.projects-overview').fadeToggle();
-    $(this).attr('id');
+    var content_id = $(this).attr('id');
+    var category = $(this).attr('data-category');
+    $('#pages section').animate({
+        scrollTop: $('.world-container').offset().top
+    }, 200);
+
+    $('.project-details[data-category=' + category + ']').fadeToggle();
+    $('.project-detail-item[data-contentid=' + content_id + ']').fadeToggle();
+    $('.projects-overview#overview-' + category).fadeToggle();
 });
 
 $('.project-back-btn').click( function () {
-    $('.project-details').fadeToggle();
-    $('.project-detail-item').fadeToggle();
-    $('.projects-overview').fadeToggle();
+    var category = $(this).attr('data-category');
 
+    $('.project-details[data-category=' + category + ']').fadeOut();
+    $('.project-detail-item[data-category=' + category + ']').fadeOut();
+    $('.projects-overview#overview-' + category).fadeIn();
 
 });
 
 
+
+
+$('.button-prev').click( function () {
+    var currentli = $('#menu').find( "li.active" );
+
+    currentli.removeClass('active');
+
+    if ( currentli.prev().is('li') ) {
+        currentli.prev().addClass('active');
+    } else {
+        $('#menu li').last().addClass('active');
+    }
+
+    var btn = $(this);
+    btn.prop('disabled',true);
+    window.setTimeout(function(){
+        btn.prop('disabled',false);
+    },620);
+});
+
+$('.button-next').click( function () {
+    var currentli = $('#menu').find( "li.active" );
+    currentli.removeClass('active');
+
+    if ( currentli.next().is('li') ) {
+        currentli.next().addClass('active');
+    } else {
+        $('#menu li').first().addClass('active');
+    }
+
+    var btn = $(this);
+    btn.prop('disabled',true);
+    window.setTimeout(function(){
+        btn.prop('disabled',false);
+    },650);
+});
+
+
+
+$('#menu li').click( function () {
+    $('#menu li').removeClass('active');
+    $(this).addClass('active');
+
+    var navbtn = $('.navigation-button');
+    navbtn.prop('disabled',true);
+    window.setTimeout(function(){
+        navbtn.prop('disabled',false);
+    },800);
+});
 // while ( !$('#pages').hasClass('veloctiyAnimating') );
 
 
@@ -419,3 +145,11 @@ $('.project-back-btn').click( function () {
 //     }
 //
 // });
+
+//
+// var today = new Date().getHours();
+// if (today >= 3 && today <= 4) {
+//    $('#exhibtion-alert').slideToggle();
+// } else {
+//     // document.body.style.background = "Blue";
+// }

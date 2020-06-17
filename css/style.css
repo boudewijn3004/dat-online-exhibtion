@@ -26,6 +26,7 @@
 html {
   min-height: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -59,6 +60,7 @@ h2 {
 .btn {
   font-family: "Neue Haas Grotesk Text Pro Bold";
   border-radius: 30px;
+  padding: 10px 30px;
 }
 
 .btn-primary {
@@ -68,6 +70,26 @@ h2 {
 
 strike {
   color: red;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4e549b;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .world-container {
@@ -94,6 +116,9 @@ strike {
   transform: scale(0.5) rotateY(-25deg) translateX(-650px);
   -moz-transform: scale(0.5) rotateY(-25deg) translateX(-650px);
   will-change: transform;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-font-smoothing: subpixel-antialiased;
   transform-style: preserve-3d;
   transition: 0.5s;
   pointer-events: none;
@@ -108,7 +133,7 @@ strike {
   position: fixed;
   z-index: 100;
   bottom: 0px;
-  left: 75px;
+  left: 85px;
   transform: rotateZ(-90deg);
   transform-origin: left;
   transform-style: flat;
@@ -122,6 +147,18 @@ strike {
   /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
+}
+
+.festival-landing-introduction {
+  position: absolute;
+  width: 380px;
+  color: #000000;
+  right: 120px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.festival-landing-introduction p {
+  font-size: 16px;
 }
 
 .festival-timetable {
@@ -175,6 +212,7 @@ strike {
   padding: 0 10px;
   cursor: pointer;
   font-size: 24px;
+  vertical-align: sub;
 }
 
 .enter-cube-container {
@@ -191,6 +229,19 @@ strike {
 
 #menu {
   text-align: center;
+  background: white;
+  border-radius: 40px 40px 0 0;
+  padding: 12px 20px 0;
+  display: inline-block;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 10px;
+}
+#menu .navigation-button {
+  background-color: transparent;
+  border: none;
+  outline: none !important;
+}
+#menu .navigation-button:disabled {
+  color: #000000;
 }
 #menu ul {
   padding-left: 0;
@@ -201,33 +252,27 @@ strike {
   padding: 10px 20px;
   margin: 5px 0;
   font-family: "Neue Haas Grotesk Text Pro Bold";
-  background: rgba(208, 255, 230, 0.77);
-  border: solid 2px #367a6c;
+  background: transparent;
+  color: #565656;
   display: inline-block;
   border-radius: 30px;
   font-size: 14px;
   cursor: pointer;
   text-transform: uppercase;
+  transition: 0.3s;
+}
+#menu ul li:hover, #menu ul li.active {
+  background: rgba(99, 203, 162, 0.77);
+  color: #ffffff;
 }
 
 .main-navigation {
   position: fixed;
-  bottom: 10px;
+  bottom: -5px;
   left: 0px;
   width: 100%;
-  padding: 20px;
   z-index: 99;
-}
-
-.festival-landing-introduction {
-  position: absolute;
-  width: 300px;
-  color: #000000;
-  right: 250px;
-  top: 200px;
-}
-.festival-landing-introduction p {
-  font-size: 16px;
+  text-align: center;
 }
 
 #pages {
@@ -248,6 +293,7 @@ strike {
   height: 100%;
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
+  -webkit-font-smoothing: subpixel-antialiased;
   overflow: hidden;
   font-size: 50px;
   margin: auto 0;
@@ -262,16 +308,21 @@ strike {
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
-  overflow-y: auto;
+  overflow-y: scroll;
   transform: translateZ(1px);
+  border: solid 3px #ffffff;
 }
 
-#pages #main {
+#pages #reimagineside {
   background-color: #ffffff;
 }
+#pages #reimagineside:hover {
+  z-index: 6;
+}
 
-#pages #about {
-  background-color: rgba(255, 69, 0, 0);
+#pages #chatroomside {
+  background-color: rgba(157, 222, 199, 0.82);
+  border: solid 3px rgba(157, 222, 199, 0.82);
   -webkit-transform-origin: center;
   -o-transform-origin: center;
   transform-origin: center;
@@ -279,33 +330,54 @@ strike {
   transform: translateZ(-100vw) rotateY(-180deg);
   will-change: transform;
 }
-
-#pages #work {
-  -webkit-transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
-  transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
-  background-color: rgba(212, 255, 0, 0);
-  will-change: transform;
+#pages #chatroomside:hover {
+  z-index: 6;
 }
 
-#pages #contact {
+#pages #recollectside {
+  -webkit-transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
+  transform: translateX(50vw) translateZ(-50vw) rotateY(90deg);
+  background-color: white;
+  will-change: transform;
+}
+#pages #recollectside:hover {
+  z-index: 6;
+}
+
+#pages #replayside {
   -webkit-transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
   transform: translateX(-50vw) translateZ(-50vw) rotateY(-90deg);
   background-color: white;
   will-change: transform;
 }
+#pages #replayside:hover {
+  z-index: 6;
+}
 
-#main .main-content {
+#reimagineside .main-content {
   width: 100%;
   padding: 50px;
   position: absolute;
   top: 0;
 }
 
-#contact .main-content {
+#replayside .main-content {
   width: 100%;
   padding: 50px;
   position: absolute;
   top: 0;
+}
+
+#recollectside .main-content {
+  width: 100%;
+  padding: 50px;
+  position: absolute;
+  top: 0;
+}
+
+.overview-title {
+  margin-bottom: 30px;
+  font-size: 3rem;
 }
 
 .project-item {
@@ -347,6 +419,7 @@ strike {
 }
 .project-item .project-item-bg-img {
   background-size: cover;
+  background-position: 30%;
   position: absolute;
   left: 0;
   top: 0;
@@ -364,23 +437,32 @@ strike {
   opacity: 0;
 }
 
-.project-details {
+.project-detail-item {
+  background: #ffffff;
+  z-index: 5;
   position: absolute;
   top: 0;
   width: 100%;
   left: 0;
-  padding: 50px;
-  height: 100%;
-  background: #ffffff;
-  z-index: 5;
+  padding: 90px;
+  min-height: 98vh;
+  height: auto;
   display: none;
 }
-.project-details .project-detail-item {
-  display: none;
+.project-detail-item h2 {
+  font-size: 2.6rem;
+}
+.project-detail-item .project-back-btn {
+  margin-bottom: 40px;
 }
 
 .livestream-item {
   background-color: #2e5394;
+}
+
+.recollect-item {
+  background-color: #d45ba8;
+  height: 400px;
 }
 
 #countdown {
@@ -390,9 +472,68 @@ strike {
   bottom: 30px;
 }
 
+#exhibtion-alert {
+  position: fixed;
+  top: 0px;
+  left: 200px;
+  padding: 20px;
+  background-color: #ffffff;
+  width: auto;
+  z-index: 99;
+}
+
 .chatroom-content {
   padding: 30px;
   margin: auto;
+}
+.chatroom-content h2 {
+  font-size: 60px;
+  color: white;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+.members-count {
+  margin-bottom: 0;
+  background: transparent;
+  padding-bottom: 0;
+}
+
+.message-form__input {
+  border-radius: 40px;
+}
+
+.members-list {
+  padding: 10px 20px 20px 10px;
+  height: auto;
+  line-height: 30px;
+  background: transparent;
+}
+.members-list .member {
+  display: inline-block;
+  padding: 0 14px;
+  background: whitesmoke;
+  margin: 0 3px;
+  border-radius: 20px;
+}
+
+.insideout-heart {
+  color: white;
+  width: 400px;
+  height: 340px;
+  display: block;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  line-height: 300px;
+}
+.insideout-heart:hover {
+  color: #ffffff;
+}
+
+iframe {
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
