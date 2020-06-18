@@ -177,9 +177,10 @@ strike {
   //z-index: 99;
   width: 380px;
   color: #000000;
-  right: 120px;
+  right: 8%;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 9;
   p {
     font-size: 16px;
   }
@@ -518,11 +519,14 @@ strike {
 
   display: none;
   h2 {
+    margin: 20px 0 30px;
     font-size: 2.6rem;
   }
 
   .project-back-btn {
     margin-bottom: 40px;
+    background: transparent;
+    color: $alt-color;
   }
 }
 
@@ -555,6 +559,25 @@ strike {
 
 // custom chatroom css
 
+.username_input {
+  border-radius: 40px;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+}
+
+.username_submit {
+  border-radius: 40px;
+  font-size: 18px;
+  padding: 12px 40px;
+  border: none;
+  outline: none;
+  background: $alt-color;
+  color: white;
+  font-family: $heading-font;
+}
+
 .chatroom-content {
   padding: 30px;
   margin: auto;
@@ -574,6 +597,7 @@ strike {
 }
 .message-form__input {
   border-radius: 40px;
+  outline: none !important;
 }
 
 .members-list {
